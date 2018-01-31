@@ -20,6 +20,8 @@ export class HomePage
 
   value: any;
 
+  pResult:number;
+
   constructor(public data: DataTestProvider) {
 
       let p = new Pojo("Jayesh" , "Ionic");
@@ -47,5 +49,23 @@ export class HomePage
       this.id.unsubscribe();
       this.data.StopTimer();
   }
+
+  promiseTest(a: number, b: number)
+  {
+     this.data.getPromise(a,b).then(data =>
+      {
+       alert(data);
+      }
+    ).catch(err => 
+      {
+       alert(err);
+      });
+  }
+  
+  promiseRaceTest()
+  {
+    this.data.testPromiseRace();
+  }
+ 
 
 }

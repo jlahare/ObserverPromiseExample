@@ -56,7 +56,7 @@ export class DataTestProvider {
                   if(this.isRunning)
                   {
                       console.log("Sending "+ this.counts);
-                      this.myObserver.next("hello " + this.counts);
+                      this.myObserver.next("" + this.counts);
                      
                       this. counts = this.counts + 1 ;
                       this.tick();
@@ -78,4 +78,44 @@ export class DataTestProvider {
 
     
    }
+
+
+   getPromise(a:number , b:number) : Promise<any>
+   {
+        let  p = new Promise( (resolve,reject) => 
+        {
+                if(a >b )
+                {
+                    resolve("Favourite Result");
+                }else
+                {
+                    reject("Non - Favourite Result");
+                }
+        });
+
+        return p;
+    }
+
+    testPromiseRace()
+    {
+        var promise1 = new Promise(function(resolve, reject) {
+            //setTimeout(resolve, 500, 'one');
+            //resolve("Hello From first Promise..");
+            reject("Rejecting from promise 1");
+        });
+        
+        var promise2 = new Promise(function(resolve, reject) {
+           // setTimeout(resolve, 100, 'two');
+            resolve("Hello From second Promise..");
+        });
+        
+        Promise.race([promise1, promise2]).then(value =>{
+          console.log(value);
+         
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
+
 }

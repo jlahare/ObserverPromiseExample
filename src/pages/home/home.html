@@ -1,14 +1,32 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Typescript Basic Concepts.
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <p> Event : {{value}}</p>
+  
+  <div class="myDiv1">
+      <p> Event : {{value}}</p>
 
-  <button ion-button full (click)="start()">Start Observer</button>
-  <button ion-button full (click)="stop()">Stop Observer</button>
+      <button ion-button full (click)="start()" >Start Observer</button>
+      <button ion-button full (click)="stop()"  >Stop Observer</button>
+  </div>
+
+  <br>
+
+  <div class="myDiv2">
+      <p>Promose Result : {{pResult}}</p>
+      <input type="number" [(ngModel)] = "param1"/>
+      <input type="number" [(ngModel)] = "param2"/>
+
+      <button ion-button full (click)="promiseTest(param1, param2)">Test Promise</button>
+      
+      <button ion-button full (click)="promiseRaceTest()">Promise Race</button>
+  </div>
+
+  
+
 </ion-content>
