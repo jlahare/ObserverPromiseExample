@@ -101,11 +101,13 @@ export class DataTestProvider {
         var promise1 = new Promise(function(resolve, reject) {
             //setTimeout(resolve, 500, 'one');
             //resolve("Hello From first Promise..");
+            console.log("Promise 1 executed..");
             reject("Rejecting from promise 1");
         });
         
         var promise2 = new Promise(function(resolve, reject) {
            // setTimeout(resolve, 100, 'two');
+            console.log("Promise 2 executed..");
             resolve("Hello From second Promise..");
         });
         
